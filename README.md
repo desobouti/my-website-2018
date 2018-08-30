@@ -1,3 +1,3 @@
 My website's code!
 
-www.desobouti.com
+desobouti.com
