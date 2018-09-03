@@ -303,5 +303,11 @@ $("#btn_2011").click(function() {
     $("#filtr-container li a").css("color","#99896e");
     $(".line_2011").css("width","300px");
     $("#btn_2011 a").css("color","#00330f");
-    //$(".side_menu_bottom").css("border-right","1px solid #00330f");
+});
+
+//Close menu when a year button is clicked
+$(".filter_nav li").on('click',function(i){
+    if($("body").hasClass("sidebar_closed") == true) {
+        $("body").toggleClass("sidebar_closed");
+    }      
 });
