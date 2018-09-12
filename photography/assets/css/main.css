@@ -19,7 +19,6 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Dosis", sans-serif; 
-  color: #9c9ca9;
   font-style: normal;
   overflow-x: hidden;
 }
@@ -1583,12 +1582,13 @@ img {
 }
 .menu_block .logo_box {
   text-align: center;
-  padding: 25px 10px;
+  padding: 55px 10px 35px 10px;
   letter-spacing: 0.2rem;
 }
 
-.logo_box span {
+.logo_box h1 {
   font-size: 35px;
+  color: #99896e;
 }
 
 .logo_box a:hover, .logo_box a:focus, .logo_box a:active {
@@ -1604,7 +1604,7 @@ img {
   color: #99896e;
 }
 .de {
-  color: #00330f;
+  color: #00330f !important;
 }
 
 .menu_block .side_menu_section {
@@ -1699,7 +1699,6 @@ img {
   display: inline-block;
   padding: 8px 0;
   text-transform: capitalize;
-  color: #9c9ca9;
   font-weight: 500;
 } 
 
