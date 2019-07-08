@@ -1,13 +1,10 @@
-/*
-	Dimension by HTML5 UP
-	html5up.net | @ajlkn
-*/
 
 (function($) {
 	var	$window = $(window),
 		$body = $('body'),
 		$wrapper = $('#wrapper'),
 		$header = $('#header'),
+		$header_nohomepage = $('#header.no-homepage'),
 		$footer = $('#footer'),
 		$main = $('#main'),
 		$main_articles = $main.children('article');
@@ -29,7 +26,57 @@
 		}, 100);
 	});
 
-	// Fix: Flexbox min-height bug on IE.
+	// Fix the menu when scrolling
+	$window.on('scroll', function() {
+	  	if($(window).scrollTop() == 0 || $(window).scrollTop() == 1) {
+	  		$header_nohomepage.removeClass("onscroll");
+	  	} else {
+	  		$header_nohomepage.addClass("onscroll");
+	  	}
+	});
+
+	// Styles of the nav buttons in ABOUT page 
+	if(window.location.href.indexOf("about") > -1) {
+		$(".aboutButton a").css("letter-spacing","0.4rem");
+		$(".aboutButton a").css("background-color","rgba(160, 196, 154, 1.050)");
+	}
+
+	// Styles of the nav (and nav-2) buttons in WORK page
+	if(window.location.href.indexOf("work") > -1) {		
+		$(".actualButton a").css("letter-spacing","0.4rem");
+		$(".workButton a").css("letter-spacing","0.4rem");
+		$(".actualButton a").css("background-color","#eee");
+		$(".workButton a").css("background-color","rgba(237, 204, 144, 1.050)");
+	}
+
+	// Styles of the nav buttons in PHOTOGRAPHY page 
+	if(window.location.href.indexOf("photography") > -1) {
+		$(".photoButton a").css("letter-spacing","0.4rem");
+		$(".photoButton a").css("background-color","rgba(254, 242, 113, 1.050)");
+	}	
+
+
+	// Actions clicking in the nav-2 buttons
+	$(".actualButton").click(function(){
+		$(".actualButton a").css("letter-spacing","0.4rem");
+		$(".actualButton a").css("background-color","#eee");
+		$(".pastButton a").css("letter-spacing","0.1rem");
+		$(".pastButton a").css("background-color","transparent");
+		$("#actual").css("display","block");
+		$("#past").css("display","none");
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	});
+	$(".pastButton").click(function(){
+		$(".actualButton a").css("letter-spacing","0.1rem");
+		$(".actualButton a").css("background-color","transparent");
+		$(".pastButton a").css("letter-spacing","0.4rem");
+		$(".pastButton a").css("background-color","#eee");
+		$("#actual").css("display","none");
+		$("#past").css("display","block");
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	});
+
+	// Flexbox min-height bug on IE.
 	if (browser.name == 'ie') {
 		var flexboxFixTimeoutId;
 		$window.on('resize.flexbox-fix', function() {
@@ -44,6 +91,7 @@
 		}).triggerHandler('resize.flexbox-fix');
 	}
 
+
 	// Nav.
 	var $nav = $header.children('nav'),
 		$nav_li = $nav.find('li');
@@ -53,6 +101,18 @@
 		$nav.addClass('use-middle');
 		$nav_li.eq( ($nav_li.length / 2) ).addClass('is-middle');
 	}
+
+	$('.openbtn').click(function(){
+		document.getElementById("mySidebar").style.height = "300px";
+  		document.getElementById("main").style.marginTop = "300px";
+	});
+
+	$('.closebtn').click(function(){
+		document.getElementById("mySidebar").style.height = "0";
+  		document.getElementById("main").style.marginTop= "0";
+	});
+
+
 
 	// Main.
 	var	delay = 325,
@@ -257,102 +317,5 @@
 
 		}, delay);
 	};
-
-	// Articles.
-	$main_articles.each(function() {
-
-		var $this = $(this);
-		// Close.
-		$('<div class="close">Close</div>')
-			.appendTo($this)
-			.on('click', function() {
-				location.hash = '';
-			});
-
-		// Prevent clicks from inside article from bubbling.
-		$this.on('click', function(event) {
-			event.stopPropagation();
-		});
-	});
-
-	// Events.
-	$body.on('click', function(event) {
-		// Article visible? Hide.
-		if ($body.hasClass('is-article-visible'))
-			$main._hide(true);
-	});
-
-	$window.on('keyup', function(event) {
-		switch (event.keyCode) {
-			case 27:
-				// Article visible? Hide.
-				if ($body.hasClass('is-article-visible'))
-					$main._hide(true);
-
-				break;
-
-			default:
-				break;
-
-		}
-	});
-
-	$window.on('hashchange', function(event) {
-		// Empty hash?
-		if (location.hash == ''
-		||	location.hash == '#') {
-
-			// Prevent default.
-			event.preventDefault();
-			event.stopPropagation();
-
-			// Hide.
-			$main._hide();
-		}
-
-		// Otherwise, check for a matching article.
-		else if ($main_articles.filter(location.hash).length > 0) {
-			// Prevent default.
-			event.preventDefault();
-			event.stopPropagation();
-
-			// Show article.
-			$main._show(location.hash.substr(1));
-		}
-
-	});
-
-	// Scroll restoration.
-	// This prevents the page from scrolling back to the top on a hashchange.
-	if ('scrollRestoration' in history)
-		history.scrollRestoration = 'manual';
-	else {
-		var	oldScrollPos = 0,
-			scrollPos = 0,
-			$htmlbody = $('html,body');
-
-		$window
-			.on('scroll', function() {
-
-				oldScrollPos = scrollPos;
-				scrollPos = $htmlbody.scrollTop();
-
-			})
-			.on('hashchange', function() {
-				$window.scrollTop(oldScrollPos);
-			});
-	}
-
-	// Initialize.
-	// Hide main, articles.
-	$main.hide();
-	$main_articles.hide();
-
-	// Initial article.
-	if (location.hash != ''
-	&&	location.hash != '#')
-		$window.on('load', function() {
-			$main._show(location.hash.substr(1), true);
-		});
 
 })(jQuery);
