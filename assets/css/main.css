@@ -1010,7 +1010,7 @@ body.is-preload #header .content .inner {
 
 /** ABOUT PAGE **/
 #content-about {
-	margin: 3rem;
+	margin: 8rem 3rem 3rem;
 	text-align: center;
 } 
 #about div:first-child { margin-bottom: 1rem; }
