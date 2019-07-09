@@ -1167,6 +1167,8 @@ body.is-preload #header .content .inner {
 @media screen and (max-width: 736px) {
 	.image.img-work { margin: 0 auto; }
 	#actual .row, #past .row { padding: 2rem; }
+	#content-work { margin: 4rem 2rem 3rem;	}
+	#bg { width: 150%; }
 }
 
 @media screen and (max-width: 600px) {
@@ -1174,6 +1176,7 @@ body.is-preload #header .content .inner {
    		flex: 100%;
     	max-width: 100%;
   	}
+	#content-work { margin: 4rem 0 3rem; }
 }
 
 @media screen and (max-width: 480px) {
@@ -1204,9 +1207,12 @@ body.is-preload #header .content .inner {
 
 	#header nav.use-middle:after { display: none; }
 	.image.img-work { margin: 0 auto; }
-  	#content-photo { margin: 8rem 3rem 3rem; }
+  	#content-photo { margin: 8rem 1rem 3rem; }
 }
 
+@media screen and (max-width: 400px) {
+	#header .content p { font-size: 18px; }
+}
 
 
 
