@@ -697,7 +697,7 @@ button {
 	-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 	-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 	transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-	background-image: url("../img/background_2_1.png");
+	background-image: url("../img/background_2.png");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1131,7 +1131,7 @@ body.is-preload #header .content .inner {
 
 
 
-/** Media queries **/
+/** General Media Queries **/
 @media screen and (max-width: 899px) {
 	.col-md-6 {
 	    -ms-flex: 0 0 100% !important;
@@ -1163,13 +1163,15 @@ body.is-preload #header .content .inner {
     	flex: 50%;
     	max-width: 50%;
   	}
+  	#bg:after { 
+		background-image: url("../img/background_3.png"); 
+	}
 }
 
 @media screen and (max-width: 736px) {
 	.image.img-work { margin: 0 auto; }
 	#actual .row, #past .row { padding: 2rem; }
 	#content-work { margin: 4rem 2rem 3rem;	}
-	#bg { width: 150%; }
 }
 
 @media screen and (max-width: 600px) {
