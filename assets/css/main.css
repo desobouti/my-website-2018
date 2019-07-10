@@ -645,7 +645,7 @@ button {
 	line-height: calc(2.75rem - 2px);
 }
 
-/* BG */
+/** Background **/
 #bg {
 	-moz-transform: scale(1.0);
 	-webkit-transform: scale(1.0);
@@ -697,7 +697,7 @@ button {
 	-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 	-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 	transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-	background-image: url("../img/background_1.png");
+	background-image: url("../img/background_2_1.png");
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -716,7 +716,8 @@ body.is-article-visible #bg:after {
 	filter: blur(0.2rem);
 }
 
-body.is-preload #bg:before { background-color: #000000; }
+body.is-preload #bg:before { background-color: #fff; }
+
 body.is-article-visible #footer {
 	-moz-transform: scale(0.95);
 	-webkit-transform: scale(0.95);
