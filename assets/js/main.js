@@ -37,40 +37,33 @@
 
 	// Styles of the nav buttons in ABOUT page 
 	if(window.location.href.indexOf("about") > -1) {
-		$(".aboutButton a").css("letter-spacing","0.4rem");
-		$(".aboutButton a").css("background-color","rgba(160, 196, 154, 1.050)");
+		$(".aboutButton a").addClass("active")
 	}
 
 	// Styles of the nav (and nav-2) buttons in WORK page
-	if(window.location.href.indexOf("work") > -1) {		
-		$(".actualButton a").css("letter-spacing","0.4rem");
-		$(".workButton a").css("letter-spacing","0.4rem");
-		$(".actualButton a").css("background-color","#eee");
-		$(".workButton a").css("background-color","rgba(237, 204, 144, 1.050)");
+	if(window.location.href.indexOf("work") > -1) {	
+		$(".workButton a").addClass("active");
+		$(".actualButton a").addClass("active");
+		$(".pastButton a").removeClass("active");	
 	}
 
 	// Styles of the nav buttons in PHOTOGRAPHY page 
 	if(window.location.href.indexOf("photography") > -1) {
-		$(".photoButton a").css("letter-spacing","0.4rem");
-		$(".photoButton a").css("background-color","rgba(254, 242, 113, 1.050)");
+		$(".photoButton a").addClass("active")
 	}	
 
 
 	// Actions clicking in the nav-2 buttons
-	$(".actualButton").click(function(){
-		$(".actualButton a").css("letter-spacing","0.4rem");
-		$(".actualButton a").css("background-color","#eee");
-		$(".pastButton a").css("letter-spacing","0.1rem");
-		$(".pastButton a").css("background-color","transparent");
+	$(".actualButton").click(function() {
+		$(".actualButton a").addClass("active");
+		$(".pastButton a").removeClass("active");
 		$("#actual").css("display","block");
 		$("#past").css("display","none");
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 	});
-	$(".pastButton").click(function(){
-		$(".actualButton a").css("letter-spacing","0.1rem");
-		$(".actualButton a").css("background-color","transparent");
-		$(".pastButton a").css("letter-spacing","0.4rem");
-		$(".pastButton a").css("background-color","#eee");
+	$(".pastButton").click(function() {
+		$(".actualButton a").removeClass("active");
+		$(".pastButton a").addClass("active");
 		$("#actual").css("display","none");
 		$("#past").css("display","block");
 		$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -102,14 +95,12 @@
 		$nav_li.eq( ($nav_li.length / 2) ).addClass('is-middle');
 	}
 
-	$('.openbtn').click(function(){
-		document.getElementById("mySidebar").style.height = "300px";
-  		document.getElementById("main").style.marginTop = "300px";
+	$('.openbtn').click(function() {
+  		$(".sidebar").addClass("opened");
 	});
 
-	$('.closebtn').click(function(){
-		document.getElementById("mySidebar").style.height = "0";
-  		document.getElementById("main").style.marginTop= "0";
+	$('.closebtn').click(function() {
+  		$(".sidebar").removeClass("opened");
 	});
 
 
