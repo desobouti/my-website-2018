@@ -1055,15 +1055,11 @@ body.is-preload #header .content .inner {
 	margin-bottom: 0;
 	list-style: none;
 	padding-left: 0;
-	/*border: 1px solid #444;
-	border-radius: 4px;
-	background-color: white;*/
 }
 
 #header nav ul li {
 	width: 100px;
 	padding-left: 0;
-	/*border-left: 1px solid #444;*/
 }
 #header nav.nav_home ul li {
 	width: 120px;
@@ -1077,7 +1073,7 @@ body.is-preload #header .content .inner {
 	min-width: 6.7rem;
 	height: 2.75rem;
 	line-height: 2.75rem;
-	font-size: 1rem;
+	font-size: 1.2rem;
 	text-transform: uppercase;
 	letter-spacing: 0.1rem;
 	border-bottom: 0;
