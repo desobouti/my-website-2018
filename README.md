@@ -1,3 +1,1 @@
-My website's code!
-
-https://desobouti.com
+Personal site: https://desobouti.com
